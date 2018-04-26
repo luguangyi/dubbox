@@ -3,6 +3,8 @@ package cn.luguangyi.dubbox;
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 /**
@@ -13,8 +15,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * 参考：https://github.com/alibaba/dubbo-spring-boot-starter/blob/master/README_zh.md
  */
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {"cn.luguangyi.dubbox.*"}
+)
 @EnableDubboConfiguration
+@EnableScheduling
+@EnableAsync
 public class DubboxApplication {
 
     public static void main(String[] args) {
